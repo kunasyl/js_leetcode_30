@@ -8,3 +8,6 @@ first app in React
 
 ##### HW3
 Add Hooks, Higher Order Componets, lifecycle methods to your application
+
+##### HW3
+Add event handlers and memoization

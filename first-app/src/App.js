@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 
 
 const withLifecycleLogging = (WrappedComponent) => {
@@ -33,14 +33,16 @@ function Counter() {
     setCount(count + 1);
   };
 
-  return (
+  const memoizedRender = useMemo(() => (
     <div>
       <p>Вы кликнули {count} раз</p>
       <button onClick={increment}>
         Нажми на меня
       </button>
     </div>
-  );
+  ), [count]);
+
+  return memoizedRender;
 }
 
 const LoggedCounter = withLifecycleLogging(Counter);
